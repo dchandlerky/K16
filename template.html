@@ -1,0 +1,19 @@
+<div class="panel panel-default b">
+  <div class="panel-heading">
+    <h4 class="panel-title">Todos</h4>
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <form ng-submit="c.createTask()">
+        <input class="form-control" type="text" ng-model="c.newTask" placeholder="Add a new task" />
+      </form>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="task in data.tasks track by task.sys_id">
+        <input type="checkbox" ng-click="c.markTaskComplete($event, task)" />
+        {{task.description}}
+      </li>
+    </ul>
+    <button ng-click="c.clearCompletedTasks()" class="btn btn-default">Clear completed tasks</button>
+  </div>
+</div>
